@@ -191,22 +191,17 @@ namespace NeuralNetwork1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // this.Enabled = false;
-            // //  Тут просто тестирование новой выборки
-            // //  Создаём новую обучающую выборку
-            // SamplesSet samples = new SamplesSet();
 
-            // samples = generator.learnImages;
+            Enabled = false;
 
-            //// double accuracy = net.TestOnDataSet(samples);
+            var testImages = generator.testImages;
 
-            // StatusLabel.Text = string.Format("Точность на тестовой выборке : {0,5:F2}%", accuracy * 100);
-            // if (accuracy * 100 >= AccuracyCounter.Value)
-            //     StatusLabel.ForeColor = Color.Green;
-            // else
-            //     StatusLabel.ForeColor = Color.Red;
+            double accuracy = testImages.TestNeuralNetwork(Net);
 
-            // this.Enabled = true;
+            StatusLabel.Text = $"Точность на тестовой выборке : {accuracy * 100,5:F2}%";
+            StatusLabel.ForeColor = accuracy * 100 >= AccuracyCounter.Value ? Color.Green : Color.Red;
+
+            Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
