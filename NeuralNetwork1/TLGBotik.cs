@@ -17,22 +17,25 @@ namespace NeuralNetwork1
 {
     class TLGBotik
     {
-        public Telegram.Bot.TelegramBotClient botik = null;
+        public TelegramBotClient client = null;
+        private readonly AIMLService aiml;
 
         MagicEye proc = new MagicEye();
 
-     //   GenerateImage generateImage = new GenerateImage();
+        //   GenerateImage generateImage = new GenerateImage();
 
         private UpdateTLGMessages formUpdater;
 
         private BaseNetwork perseptron = null;
         // CancellationToken - инструмент для отмены задач, запущенных в отдельном потоке
         private readonly CancellationTokenSource cts = new CancellationTokenSource();
-        public TLGBotik(BaseNetwork net,  UpdateTLGMessages updater)
-        { 
+        public string Username { get; }
+        public TLGBotik(BaseNetwork net, UpdateTLGMessages updater)
+        {
+            aiml = new AIMLService();
             var botKey = System.IO.File.ReadAllText("botkey.txt");
-           // generateImage.LoadImages();
-            botik = new TelegramBotClient(botKey);
+            // generateImage.LoadImages();
+            client = new TelegramBotClient(botKey);
             formUpdater = updater;
             perseptron = net;
         }
@@ -47,6 +50,8 @@ namespace NeuralNetwork1
         {
             //  Тут очень простое дело - банально отправляем назад сообщения
             var message = update.Message;
+            var chatId = message.Chat.Id;
+            var username = message.Chat.FirstName;
             formUpdater("Тип сообщения : " + message.Type.ToString());
 
             //  Получение файла (картинки)
@@ -54,46 +59,60 @@ namespace NeuralNetwork1
             {
                 formUpdater("Picture loadining started");
                 var photoId = message.Photo.Last().FileId;
-                Telegram.Bot.Types.File fl = botik.GetFileAsync(photoId).Result;
+                Telegram.Bot.Types.File fl = client.GetFileAsync(photoId).Result;
                 var imageStream = new MemoryStream();
-                await botik.DownloadFileAsync(fl.FilePath, imageStream, cancellationToken: cancellationToken);
+                await client.DownloadFileAsync(fl.FilePath, imageStream, cancellationToken: cancellationToken);
                 var img = Image.FromStream(imageStream);
-                
+
                 Bitmap bm = new Bitmap(img);
 
                 //  Масштабируем aforge
-               // AForge.Imaging.Filters.ResizeBilinear scaleFilter = new AForge.Imaging.Filters.ResizeBilinear(200,200);
-               // var uProcessed = scaleFilter.Apply(AForge.Imaging.UnmanagedImage.FromManagedImage(bm));
-         
+                // AForge.Imaging.Filters.ResizeBilinear scaleFilter = new AForge.Imaging.Filters.ResizeBilinear(200,200);
+                // var uProcessed = scaleFilter.Apply(AForge.Imaging.UnmanagedImage.FromManagedImage(bm));
+
                 proc.ProcessImage(bm);
                 var procImage = proc.processed;
                 var sample = getBmp(procImage);
 
                 switch (perseptron.Predict(sample))
                 {
-                    case FigureType.canBleached: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был canBleached!");break;
-                    case FigureType.drying: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был drying!"); break;
-                    case FigureType.iron: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был iron"); break;
-                    case FigureType.canTBleached: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был canTBleached!"); break;
-                    case FigureType.dontwash: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был dontwash!"); break;
-                    case FigureType.spinIsProhibited: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был spinIsProhibited!"); break;
-                    case FigureType.machineWashable: botik.SendTextMessageAsync(message.Chat.Id, "Думаю, это был machineWashable!"); break;
-                    default: botik.SendTextMessageAsync(message.Chat.Id, "Я такого не знаю!"); break;
+                    case FigureType.canBleached: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был canBleached!"); break;
+                    case FigureType.drying: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был drying!"); break;
+                    case FigureType.iron: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был iron"); break;
+                    case FigureType.canTBleached: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был canTBleached!"); break;
+                    case FigureType.dontwash: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был dontwash!"); break;
+                    case FigureType.spinIsProhibited: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был spinIsProhibited!"); break;
+                    case FigureType.machineWashable: client.SendTextMessageAsync(message.Chat.Id, "Думаю, это был machineWashable!"); break;
+                    default: client.SendTextMessageAsync(message.Chat.Id, "Я такого не знаю!"); break;
                 }
 
                 formUpdater("Picture recognized!");
                 return;
             }
-
-            if (message == null || message.Type != MessageType.Text) return;
-            if(message.Text == "Authors")
+            else if (message.Type == MessageType.Text)
             {
-                string authors = "Гаянэ Аршакян, Луспарон Тызыхян, Дамир Казеев, Роман Хыдыров, Владимир Садовский, Анастасия Аскерова, Константин Бервинов, и Борис Трикоз (но он уже спать ушел) и молчаливый Даниил Ярошенко, а год спустя ещё Иванченко Вячеслав";
-                botik.SendTextMessageAsync(message.Chat.Id, "Авторы проекта : " + authors);
+                var messageText = update.Message.Text;
+
+                Console.WriteLine($"Received a '{messageText}' message in chat {chatId} with {username}.");
+
+                // Echo received message text
+                await botClient.SendTextMessageAsync(
+                    chatId: chatId,
+                    text: aiml.Talk(chatId, username, messageText),
+                    cancellationToken: cancellationToken);
+                return;
             }
-            botik.SendTextMessageAsync(message.Chat.Id, "Bot reply : " + message.Text);
-            formUpdater(message.Text);
-            return;
+
+            if (message.Type == MessageType.Video)
+            {
+                await client.SendTextMessageAsync(message.Chat.Id, aiml.Talk(chatId, username, "Видео"), cancellationToken: cancellationToken);
+                return;
+            }
+            if (message.Type == MessageType.Audio)
+            {
+                await client.SendTextMessageAsync(message.Chat.Id, aiml.Talk(chatId, username, "Аудио"), cancellationToken: cancellationToken);
+                return;
+            }
         }
 
         private Sample getBmp(Bitmap img)
@@ -144,15 +163,16 @@ namespace NeuralNetwork1
         {
             try
             {
-                botik.StartReceiving(HandleUpdateMessageAsync, HandleErrorAsync, new ReceiverOptions
+                client.StartReceiving(HandleUpdateMessageAsync, HandleErrorAsync, new ReceiverOptions
                 {   // Подписываемся только на сообщения
                     AllowedUpdates = new[] { UpdateType.Message }
                 },
                 cancellationToken: cts.Token);
                 // Пробуем получить логин бота - тестируем соединение и токен
-                Console.WriteLine($"Connected as {botik.GetMeAsync().Result}");
+                Console.WriteLine($"Connected as {client.GetMeAsync().Result}");
             }
-            catch(Exception e) { 
+            catch (Exception e)
+            {
                 return false;
             }
             return true;

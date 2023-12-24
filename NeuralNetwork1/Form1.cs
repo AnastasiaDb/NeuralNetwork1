@@ -20,7 +20,7 @@ namespace NeuralNetwork1
         /// <summary>
         /// Чат-бот AIML
         /// </summary>
-        AIMLBotik botik = new AIMLBotik();
+        AIMLService botik = new AIMLService();
 
         TLGBotik tlgBot;
 
@@ -272,7 +272,7 @@ namespace NeuralNetwork1
         {
             var phrase = AIMLInput.Text;
             if (phrase.Length > 0)
-                AIMLOutput.Text += botik.Talk(phrase) + Environment.NewLine;
+                AIMLOutput.Text += botik.Talk(0, "default", phrase) + Environment.NewLine;
         }
 
         private void TLGBotOnButton_Click(object sender, EventArgs e)
