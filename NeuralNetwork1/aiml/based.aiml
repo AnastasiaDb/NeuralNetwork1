@@ -75,7 +75,15 @@
 		</template>
 	</category>
 
-	<category>
+  <category>
+    <pattern>привет *</pattern>
+    <template>
+      <srai>привет</srai>
+    </template>
+  </category>
+
+
+  <category>
 		<pattern>start</pattern>
 		<template>
 			<srai>привет</srai>
@@ -148,6 +156,27 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>РАССКАЖИ О СЕБЕ *</pattern>
+    <template>
+      <srai>кто ты</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* РАССКАЖИ О СЕБЕ</pattern>
+    <template>
+      <srai>кто ты</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* РАССКАЖИ О СЕБЕ *</pattern>
+    <template>
+      <srai>кто ты</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>ты кто</pattern>
 		<template>
@@ -168,6 +197,20 @@
 			<srai>кто ты</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>* что-то умеешь</pattern>
+    <template>
+      <srai>кто ты</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>что-то умеешь</pattern>
+    <template>
+      <srai>кто ты</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>что знаешь</pattern>
@@ -191,14 +234,14 @@
 	</category>
 
 	<category>
-		<pattern>* какие символы знаешь*</pattern>
+		<pattern>* какие символы знаешь *</pattern>
 		<template>
 			<srai>кто ты</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern>какие символы знаешь*</pattern>
+		<pattern>какие символы знаешь *</pattern>
 		<template>
 			<srai>кто ты</srai>
 		</template>
@@ -319,6 +362,27 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* о чем * говориШЬ *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем говориШЬ *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * говориШЬ</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>о чем говориШЬ *</pattern>
 		<template>
@@ -332,6 +396,48 @@
 			<srai>о чем говорим</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>о чем * говорили *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>о чем говорили *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>о чем * говорили</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем говорили *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * говорили *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * говорили</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>о чем * говорим *</pattern>
@@ -354,6 +460,27 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* о чем говорим *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * говорим *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * говорим</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>о чем * рассказываешь *</pattern>
 		<template>
@@ -361,6 +488,34 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* о чем * рассказываешь *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем * рассказываешь</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем рассказываешь *</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* о чем рассказываешь</pattern>
+    <template>
+      <srai>о чем говорим</srai>
+    </template>
+  </category>
+  
 	<category>
 		<pattern>о чем рассказываешь *</pattern>
 		<template>
@@ -435,6 +590,34 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>глажка разрешена</pattern>
+    <template>
+      <srai>можно гладить</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* глажка разрешена</pattern>
+    <template>
+      <srai>можно гладить</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* глажка разрешена *</pattern>
+    <template>
+      <srai>можно гладить</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>глажка разрешена *</pattern>
+    <template>
+      <srai>можно гладить</srai>
+    </template>
+  </category>
+  
 	<category>
 		<pattern> *гладить разрешено *</pattern>
 		<template>
@@ -561,6 +744,34 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>можно отбелить *</pattern>
+    <template>
+      <srai>можно отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* можно отбелить *</pattern>
+    <template>
+      <srai>можно отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* можно отбелить</pattern>
+    <template>
+      <srai>можно отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>можно отбелить</pattern>
+    <template>
+      <srai>можно отбеливать</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>* отбеливание разрешено *</pattern>
 		<template>
@@ -666,18 +877,25 @@
 	</category>
 
 	<category>
-		<pattern> *отбеливание недопустимо *</pattern>
+		<pattern>* отбеливание недопустимо *</pattern>
 		<template>
 			<srai>нельзя отбеливать</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern> *отбеливание недопустимо </pattern>
+		<pattern>* отбеливание недопустимо </pattern>
 		<template>
 			<srai>нельзя отбеливать</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>отбеливание недопустимо </pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern> отбеливание недопустимо *</pattern>
@@ -686,12 +904,47 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>отбеливание запрещено *</pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* отбеливание запрещено</pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* отбеливание запрещено *</pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>отбеливание запрещено</pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>* запрещено отбеливание *</pattern>
 		<template>
 			<srai>нельзя отбеливать</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>запрещено отбеливание</pattern>
+    <template>
+      <srai>нельзя отбеливать</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* запрещено отбеливание </pattern>
@@ -706,6 +959,7 @@
 			<srai>нельзя отбеливать</srai>
 		</template>
 	</category>
+  
 	<topic name="нельзя отбеливать">
 		<category>
 			<pattern>ЕЩЕ</pattern>
@@ -784,25 +1038,32 @@
 	</category>
 
 	<category>
-		<pattern> *машинная сушка разрешена *</pattern>
+		<pattern>* машинная сушка разрешена *</pattern>
 		<template>
 			<srai>разрешена машинная сушка</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern> *машинная сушка разрешена </pattern>
+		<pattern>* машинная сушка разрешена </pattern>
 		<template>
 			<srai>разрешена машинная сушка</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern> машинная сушка разрешена *</pattern>
+		<pattern>машинная сушка разрешена *</pattern>
 		<template>
 			<srai>разрешена машинная сушка</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>машинная сушка разрешена</pattern>
+    <template>
+      <srai>разрешена машинная сушка</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* сушка в машине *</pattern>
@@ -851,7 +1112,7 @@
 
 	<topic name="разрешена машинная сушка">
 		<category>
-			<pattern> ЕЩЕ *</pattern>
+			<pattern>ЕЩЕ *</pattern>
 			<template>
 				<srai>ЕЩЕ</srai>
 			</template>
@@ -904,21 +1165,21 @@
 	</category>
 
 	<category>
-		<pattern> *сушить можно *</pattern>
+		<pattern>* сушить можно *</pattern>
 		<template>
 			<srai>можно сушить</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern> *сушить можно </pattern>
+		<pattern>* сушить можно </pattern>
 		<template>
 			<srai>можно сушить</srai>
 		</template>
 	</category>
 
 	<category>
-		<pattern> сушить можно *</pattern>
+		<pattern>сушить можно *</pattern>
 		<template>
 			<srai>можно сушить</srai>
 		</template>
@@ -944,6 +1205,13 @@
 			<srai>можно сушить</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>сушка разрешена</pattern>
+    <template>
+      <srai>можно сушить</srai>
+    </template>
+  </category>
 
 	<topic name="можно сушить">
 		<category>
@@ -1018,6 +1286,13 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>не стирать</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
+
 
 	<category>
 		<pattern>не стирать *</pattern>
@@ -1033,6 +1308,20 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* нельзя стирать *</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>нельзя стирать *</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>стирать нельзя</pattern>
 		<template>
@@ -1047,6 +1336,20 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>стирать нельзя *</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* стирать нельзя *</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>* стирка запрещена</pattern>
 		<template>
@@ -1055,7 +1358,7 @@
 	</category>
 
 	<category>
-		<pattern>* стирка запрещена*</pattern>
+		<pattern>* стирка запрещена *</pattern>
 		<template>
 			<srai>нельзя стирать</srai>
 		</template>
@@ -1067,6 +1370,13 @@
 			<srai>нельзя стирать</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>стирка запрещена</pattern>
+    <template>
+      <srai>нельзя стирать</srai>
+    </template>
+  </category>
 
 	<topic name="нельзя стирать">
 		<category>
@@ -1177,6 +1487,13 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* стирать можно *</pattern>
+    <template>
+      <srai>можно стирать</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>* стирка разрешена *</pattern>
 		<template>
@@ -1197,6 +1514,13 @@
 			<srai>можно стирать</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>стирка разрешена</pattern>
+    <template>
+      <srai>можно стирать</srai>
+    </template>
+  </category>
 
 	<topic name="можно стирать">
 		<category>
@@ -1270,51 +1594,82 @@
 	<category>
 		<pattern>* уходе </pattern>
 		<template>
-			<srai>уход за одеждой</srai>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>уходе *</pattern>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* уход *</pattern>
 		<template>
-			<srai>уход за одеждой</srai>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>* уход </pattern>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern> уход *</pattern>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
 		</template>
 	</category>
 
-	<category>
-		<pattern>* уход </pattern>
-		<template>
-			<srai>уход за одеждой</srai>
-		</template>
-	</category>
-
-	<category>
-		<pattern> уход *</pattern>
-		<template>
-			<srai>уход за одеждой</srai>
-		</template>
-	</category>
+  <category>
+    <pattern>уход</pattern>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* ухаживать *</pattern>
 		<template>
-			<srai>уход за одеждой</srai>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
 		</template>
 	</category>
 
 	<category>
 		<pattern>* ухаживать </pattern>
-		<template>
-			<srai>уход за одеждой</srai>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
 		</template>
 	</category>
 
 	<category>
 		<pattern> ухаживать *</pattern>
 		<template>
+      Возможно , вы имели ввиду уход за одеждой.
 			<srai>уход за одеждой</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>ухаживать</pattern>
+    <template>
+      Возможно , вы имели ввиду уход за одеждой.
+      <srai>уход за одеждой</srai>
+    </template>
+  </category>
 
 
 	<!-- ИНТЕРЕСНЫЕ ФАКТЫ -->
@@ -1434,7 +1789,7 @@
 	</category>
 
 	<category>
-		<pattern> фото *</pattern>
+		<pattern>фото *</pattern>
 		<template>
 			<srai>фото</srai>
 		</template>
@@ -1460,6 +1815,13 @@
 			<srai>фото</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>фотке</pattern>
+    <template>
+      <srai>фото</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* фотку *</pattern>
@@ -1530,6 +1892,13 @@
 			<srai>фото</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>картинке *</pattern>
+    <template>
+      <srai>фото</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>* картинке </pattern>
@@ -1694,6 +2063,13 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* как дела *</pattern>
+    <template>
+      <srai>как дела</srai>
+    </template>
+  </category>
+
 	<category>
 		<pattern>как дела *</pattern>
 		<template>
@@ -1722,6 +2098,13 @@
 		</template>
 	</category>
 
+  <category>
+    <pattern>* как жизнь *</pattern>
+    <template>
+      <srai>как дела</srai>
+    </template>
+  </category>
+  
 	<category>
 		<pattern>как ты *</pattern>
 		<template>
@@ -1735,6 +2118,13 @@
 			<srai>как дела</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>* как ты *</pattern>
+    <template>
+      <srai>как дела</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>как ты</pattern>
@@ -1763,6 +2153,13 @@
 			<srai>как дела</srai>
 		</template>
 	</category>
+
+  <category>
+    <pattern>* как поживаешь *</pattern>
+    <template>
+      <srai>как дела</srai>
+    </template>
+  </category>
 
 	<category>
 		<pattern>как дела</pattern>
