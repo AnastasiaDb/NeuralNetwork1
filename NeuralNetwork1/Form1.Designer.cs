@@ -33,7 +33,6 @@
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label7;
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -69,7 +68,6 @@
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classCounter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AccuracyCounter)).BeginInit();
@@ -123,29 +121,17 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(727, 421);
+            label7.Location = new System.Drawing.Point(80, 420);
             label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(47, 16);
             label7.TabIndex = 14;
             label7.Text = "Status:";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(665, 614);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(685, 12);
+            this.label1.Location = new System.Drawing.Point(38, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
@@ -170,7 +156,7 @@
             this.groupBox1.Controls.Add(this.TrainingSizeCounter);
             this.groupBox1.Controls.Add(label4);
             this.groupBox1.Controls.Add(label2);
-            this.groupBox1.Location = new System.Drawing.Point(685, 49);
+            this.groupBox1.Location = new System.Drawing.Point(38, 48);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -351,7 +337,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(741, 452);
+            this.label8.Location = new System.Drawing.Point(94, 451);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(44, 16);
@@ -361,7 +347,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(696, 452);
+            this.label9.Location = new System.Drawing.Point(49, 451);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 64);
@@ -370,7 +356,7 @@
             // 
             // trainOneButton
             // 
-            this.trainOneButton.Location = new System.Drawing.Point(685, 591);
+            this.trainOneButton.Location = new System.Drawing.Point(38, 590);
             this.trainOneButton.Margin = new System.Windows.Forms.Padding(4);
             this.trainOneButton.Name = "trainOneButton";
             this.trainOneButton.Size = new System.Drawing.Size(168, 37);
@@ -381,7 +367,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(689, 522);
+            this.progressBar1.Location = new System.Drawing.Point(42, 521);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(388, 27);
@@ -397,7 +383,7 @@
             this.statusStrip1.Location = new System.Drawing.Point(0, 640);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1576, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(963, 26);
             this.statusStrip1.TabIndex = 11;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -412,7 +398,7 @@
             // elapsedTimeLabel
             // 
             this.elapsedTimeLabel.AutoSize = true;
-            this.elapsedTimeLabel.Location = new System.Drawing.Point(696, 553);
+            this.elapsedTimeLabel.Location = new System.Drawing.Point(49, 552);
             this.elapsedTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.elapsedTimeLabel.Name = "elapsedTimeLabel";
             this.elapsedTimeLabel.Size = new System.Drawing.Size(51, 16);
@@ -428,7 +414,7 @@
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.Location = new System.Drawing.Point(784, 421);
+            this.StatusLabel.Location = new System.Drawing.Point(137, 420);
             this.StatusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(46, 16);
@@ -440,7 +426,7 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.AIMLOutput);
             this.groupBox2.Controls.Add(this.AIMLInput);
-            this.groupBox2.Location = new System.Drawing.Point(1085, 15);
+            this.groupBox2.Location = new System.Drawing.Point(438, 14);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -482,7 +468,7 @@
             // 
             this.groupBox3.Controls.Add(this.TLGBotOnButton);
             this.groupBox3.Controls.Add(this.TLGUsersMessages);
-            this.groupBox3.Location = new System.Drawing.Point(1085, 247);
+            this.groupBox3.Location = new System.Drawing.Point(438, 246);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -515,7 +501,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1576, 666);
+            this.ClientSize = new System.Drawing.Size(963, 666);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.StatusLabel);
@@ -528,13 +514,11 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Банальный студенческий перспетрон";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classCounter)).EndInit();
@@ -553,8 +537,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.NumericUpDown TrainingSizeCounter;

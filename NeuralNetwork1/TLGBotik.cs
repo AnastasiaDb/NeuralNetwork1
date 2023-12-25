@@ -19,6 +19,7 @@ namespace NeuralNetwork1
     {
         public TelegramBotClient client = null;
         private readonly AIMLService aiml;
+        public int x = 0;
 
         MagicEye proc = new MagicEye();
 
@@ -72,7 +73,10 @@ namespace NeuralNetwork1
 
                 proc.ProcessImage(bm);
                 var procImage = proc.processed;
-                var sample = getBmp(procImage);
+                x++;
+                procImage.Save("../../Images/image_" + x + ".png");
+                var sensor = getBmp(procImage);
+                Sample sample = new Sample(sensor, 7, FigureType.Undef);
 
                 switch (perseptron.Predict(sample))
                 {
@@ -115,7 +119,7 @@ namespace NeuralNetwork1
             }
         }
 
-        private Sample getBmp(Bitmap img)
+        private double[] getBmp(Bitmap img)
         {
             double[] input = new double[400];
             for (int i = 0; i < 400; i++)
@@ -146,8 +150,7 @@ namespace NeuralNetwork1
                     }
 
                 }
-            Sample sample = new Sample(input, 7);
-            return sample;
+            return input;
         }
         Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {

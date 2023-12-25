@@ -85,16 +85,20 @@ namespace NeuralNetwork1
 
         public bool ProcessImage(Bitmap bitmap)
         {
+            int side;
             // На вход поступает необработанное изображение с веб-камеры
 
             //  Минимальная сторона изображения (обычно это высота)
             if (bitmap.Height > bitmap.Width)
-                throw new Exception("К такой забавной камере меня жизнь не готовила!");
+                side = bitmap.Width;
+            // throw new Exception("К такой забавной камере меня жизнь не готовила!");
+            else side = bitmap.Height;
             //  Можно было, конечено, и не кидаться эксепшенами в истерике, но идите и купите себе нормальную камеру!
-            int side = bitmap.Height;
+            // side = bitmap.Height;
 
             //  Отпиливаем границы, но не более половины изображения
-            if (side < 4 * settings.border) settings.border = side / 4;
+            if (side < 4 * settings.border)
+                settings.border = side / 4;
             side -= 2 * settings.border;
             
             //  Мы сейчас занимаемся тем, что красиво оформляем входной кадр, чтобы вывести его на форму
@@ -114,48 +118,57 @@ namespace NeuralNetwork1
             AForge.Imaging.Filters.Grayscale grayFilter = new AForge.Imaging.Filters.Grayscale(0.2125, 0.7154, 0.0721);
             var uProcessed = grayFilter.Apply(AForge.Imaging.UnmanagedImage.FromManagedImage(original));
 
-            
-            int blockWidth = original.Width / settings.blocksCount;
-            int blockHeight = original.Height / settings.blocksCount;
-            for (int r = 0; r < settings.blocksCount; ++r)
-                for (int c = 0; c < settings.blocksCount; ++c)
-                {
-                    //  Тут ещё обработку сделать
-                    g.DrawRectangle(p, new Rectangle(c * blockWidth, r * blockHeight, blockWidth, blockHeight));
-                }
-
 
             //  Масштабируем изображение до 500x500 - этого достаточно
-            AForge.Imaging.Filters.ResizeBilinear scaleFilter = new AForge.Imaging.Filters.ResizeBilinear(settings.orignalDesiredSize.Width, settings.orignalDesiredSize.Height);
-            uProcessed = scaleFilter.Apply(uProcessed);
-            original = scaleFilter.Apply(original);
+            AForge.Imaging.Filters.ResizeBilinear scaleFilterOrig = new AForge.Imaging.Filters.ResizeBilinear(settings.orignalDesiredSize.Width, settings.orignalDesiredSize.Height);
+          //  uProcessed = scaleFilterOrig.Apply(uProcessed);
+            original = scaleFilterOrig.Apply(original);
             g = Graphics.FromImage(original);
+
+          //  original.Save("../../Images/imageor_"  + ".png");
+
+            AForge.Imaging.Filters.ResizeBilinear scaleFilterProc= new AForge.Imaging.Filters.ResizeBilinear(settings.processedDesiredSize.Width, settings.processedDesiredSize.Height);
+            uProcessed = scaleFilterProc.Apply(uProcessed);
+
+           // processed = uProcessed.ToManagedImage();
+           // processed.Save("../../Images/imageor_" + ".png");
+
             //  Пороговый фильтр применяем. Величина порога берётся из настроек, и меняется на форме
             AForge.Imaging.Filters.BradleyLocalThresholding threshldFilter = new AForge.Imaging.Filters.BradleyLocalThresholding();
             threshldFilter.PixelBrightnessDifferenceLimit = settings.differenceLim;
             threshldFilter.ApplyInPlace(uProcessed);
 
 
-            if (settings.processImg)
-            {            
-                //string info = processSample(ref uProcessed);
-                //Font f = new Font(FontFamily.GenericSansSerif, 20);
-                //g.DrawString(info, f, Brushes.Black, 30, 30);
+            /////  Инвертируем изображение
+            AForge.Imaging.Filters.Invert InvertFilter = new AForge.Imaging.Filters.Invert();
+            InvertFilter.ApplyInPlace(uProcessed);
+
+            ///    Создаём BlobCounter, выдёргиваем самый большой кусок, масштабируем, пересечение и сохраняем
+            ///    изображение в эксклюзивном использовании
+            AForge.Imaging.BlobCounterBase bc = new AForge.Imaging.BlobCounter();
+
+            bc.FilterBlobs = true;
+            bc.MinWidth = 3;
+            bc.MinHeight = 3;
+            // Упорядочиваем по размеру
+            bc.ObjectsOrder = AForge.Imaging.ObjectsOrder.Size;
+            // Обрабатываем картинку
+
+            bc.ProcessImage(uProcessed);
+
+            AForge.Imaging.Blob[] blobs = bc.GetObjectsInformation();
+            if (blobs.Length > 0)
+            {
+                var BiggestBlob = blobs[0];
+                bc.ExtractBlobsImage(uProcessed, BiggestBlob, false);
+                uProcessed = BiggestBlob.Image;
             }
-
-            //  Получить значения сенсоров из обработанного изображения размера 100x100
-
-            //  Можно вывести информацию на изображение!
-            //Font f = new Font(FontFamily.GenericSansSerif, 10);
-            //for (int r = 0; r < 4; ++r)
-            //    for (int c = 0; c < 4; ++c)
-            //        if (currentDeskState[r * 4 + c] >= 1 && currentDeskState[r * 4 + c] <= 16)
-            //        {
-            //            int num = 1 << currentDeskState[r * 4 + c];
-            //            
-            //        }
-
-
+            else
+            {
+                return false;
+            }
+            InvertFilter.ApplyInPlace(uProcessed);
+            uProcessed = scaleFilterProc.Apply(uProcessed);
             processed = uProcessed.ToManagedImage();
 
             return true;
