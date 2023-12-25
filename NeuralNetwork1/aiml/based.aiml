@@ -21,10 +21,7 @@
 		</template>
 	</category>
 
-	<category>
-		<pattern>меня зовут *</pattern>
-		<template>
-			<random>
+	<!--<random>
 				<li>
 					Здравствуйте, <set name="user-name">
 						<star />
@@ -35,7 +32,16 @@
 						<star />
 					</set>!
 				</li>
-			</random>
+			</random>-->
+	
+	<category>
+		<pattern>меня зовут *</pattern>
+		<template>
+			<think>
+				<set name="user-name">
+					<star />
+				</set>
+			</think>
 		</template>
 	</category>
 
@@ -46,16 +52,16 @@
 		<template>
 			<random>
 				<li>
-					Привет, <get name="user-name"/>
+					Привет, <get name="user-name"/>!
 				</li>
 				<li>
-					Приветствую, <get name="user-name"/>
+					Приветствую, <get name="user-name"/>!
 				</li>
 				<li>
-					Здравствуйте, <get name="user-name"/>
+					Здравствуйте, <get name="user-name"/>!
 				</li>
 				<li>
-					Доброго времени суток, <get name="user-name"/>
+					Доброго времени суток, <get name="user-name"/>!
 				</li>
 			</random>
 			Если хотите узнать о том, что я умею, просто спросите меня!
@@ -185,7 +191,7 @@
 	</category>
 
 	<category>
-		<pattern>*какие символы знаешь*</pattern>
+		<pattern>* какие символы знаешь*</pattern>
 		<template>
 			<srai>кто ты</srai>
 		</template>
@@ -199,7 +205,7 @@
 	</category>
 
 	<category>
-		<pattern>*какие символы знаешь</pattern>
+		<pattern>* какие символы знаешь</pattern>
 		<template>
 			<srai>кто ты</srai>
 		</template>
@@ -213,6 +219,13 @@
 	</category>
 
 	<category>
+		<pattern>символы</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
 		<pattern>символы *</pattern>
 		<template>
 			<srai>кто ты</srai>
@@ -220,13 +233,78 @@
 	</category>
 
 	<category>
-		<pattern>*символы </pattern>
+		<pattern>* символы </pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символе *</pattern>
 		<template>
 			<srai>кто ты</srai>
 		</template>
 	</category>
 
 
+	<category>
+		<pattern>символе *</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символе </pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символах *</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+
+	<category>
+		<pattern>символах *</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символах </pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символ *</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+
+	<category>
+		<pattern>символ *</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* символ</pattern>
+		<template>
+			<srai>кто ты</srai>
+		</template>
+	</category>
+	
 	<category>
 		<pattern>о чем говорим</pattern>
 		<template>
@@ -1426,6 +1504,27 @@
 	</category>
 
 	<category>
+		<pattern>* картинку *</pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* картинку </pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern> картинку *</pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
 		<pattern>* картинке *</pattern>
 		<template>
 			<srai>фото</srai>
@@ -1518,6 +1617,27 @@
 
 	<category>
 		<pattern> фотографии *</pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* фотографию *</pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern>* фотографию </pattern>
+		<template>
+			<srai>фото</srai>
+		</template>
+	</category>
+
+	<category>
+		<pattern> фотографию *</pattern>
 		<template>
 			<srai>фото</srai>
 		</template>
@@ -1695,4 +1815,11 @@
 		</template>
 	</category>
 
+	<category>
+		<pattern>?</pattern>
+		<template>
+			<srai>*</srai>
+		</template>
+	</category>
+	
 </aiml>
