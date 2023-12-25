@@ -78,7 +78,6 @@ namespace NeuralNetwork1
             netTypeBox.SelectedIndex = 1;
             generator.figure_count = (int)classCounter.Value;
             //button3_Click(this, null);
-            pictureBox1.Image = Properties.Resources.Title;
 
             tlgBot = new TLGBotik(Net, new UpdateTLGMessages(UpdateTLGInfo));
 
@@ -145,7 +144,7 @@ namespace NeuralNetwork1
             label1.Text = "Выполняется обучение...";
             label1.ForeColor = Color.Red;
             groupBox1.Enabled = false;
-            pictureBox1.Enabled = false;
+           // pictureBox1.Enabled = false;
             trainOneButton.Enabled = false;
 
             //  Создаём новую обучающую выборку
@@ -164,7 +163,7 @@ namespace NeuralNetwork1
                 label1.Text = "Щелкните на картинку для теста нового образа";
                 label1.ForeColor = Color.Green;
                 groupBox1.Enabled = true;
-                pictureBox1.Enabled = true;
+                //pictureBox1.Enabled = true;
                 trainOneButton.Enabled = true;
                 StatusLabel.Text = "Accuracy: " + f.ToString();
                 StatusLabel.ForeColor = Color.Green;
